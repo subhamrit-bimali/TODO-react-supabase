@@ -1,0 +1,197 @@
+.item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 16px 18px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  transition: border-color var(--transition), background var(--transition), opacity 0.3s ease, transform 0.3s ease;
+  animation: fadeIn 0.2s ease;
+}
+
+.item:hover {
+  border-color: rgba(124, 58, 237, 0.3);
+  background: var(--surface-hover);
+}
+
+.item:hover .actions {
+  opacity: 1;
+}
+
+.item.done {
+  opacity: 0.5;
+}
+
+.item.deleting {
+  opacity: 0;
+  transform: translateX(12px);
+  pointer-events: none;
+}
+
+/* Checkbox */
+.check {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  margin-top: 2px;
+  border-radius: 6px;
+  transition: transform var(--transition);
+}
+
+.check:hover {
+  transform: scale(1.1);
+}
+
+.check:active {
+  transform: scale(0.9);
+}
+
+.check svg {
+  width: 20px;
+  height: 20px;
+}
+
+.check svg rect {
+  stroke: var(--border);
+  fill: transparent;
+  transition: fill var(--transition), stroke var(--transition);
+}
+
+.check.checked svg rect {
+  fill: var(--accent);
+  stroke: var(--accent);
+}
+
+.check.toggling {
+  animation: pulse 0.4s ease;
+}
+
+.checkPath {
+  animation: checkDraw 0.2s ease forwards;
+}
+
+/* Content */
+.content {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.title {
+  font-size: 0.95rem;
+  color: var(--text);
+  line-height: 1.5;
+  word-break: break-word;
+  cursor: default;
+  transition: color var(--transition);
+}
+
+.item.done .title {
+  text-decoration: line-through;
+  color: var(--text-dim);
+}
+
+.editForm {
+  width: 100%;
+}
+
+.editInput {
+  width: 100%;
+  background: var(--bg);
+  border: 1px solid var(--accent);
+  border-radius: 6px;
+  padding: 4px 10px;
+  color: var(--text);
+  font-size: 0.95rem;
+  box-shadow: 0 0 0 3px var(--accent-dim);
+}
+
+.editInput:focus {
+  outline: none;
+}
+
+/* Meta */
+.meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.priority {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  font-weight: 500;
+  padding: 2px 8px;
+  border-radius: 100px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.priority.high {
+  background: rgba(239, 68, 68, 0.15);
+  color: #FCA5A5;
+  border: 1px solid rgba(239, 68, 68, 0.25);
+}
+
+.priority.medium {
+  background: rgba(245, 158, 11, 0.12);
+  color: #FCD34D;
+  border: 1px solid rgba(245, 158, 11, 0.2);
+}
+
+.priority.low {
+  background: rgba(34, 197, 94, 0.1);
+  color: #86EFAC;
+  border: 1px solid rgba(34, 197, 94, 0.2);
+}
+
+.date {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  color: var(--text-dim);
+}
+
+/* Actions */
+.actions {
+  display: flex;
+  gap: 4px;
+  opacity: 0;
+  transition: opacity var(--transition);
+  flex-shrink: 0;
+  align-self: flex-start;
+}
+
+.editBtn,
+.deleteBtn {
+  padding: 6px;
+  border-radius: 6px;
+  color: var(--text-dim);
+  transition: background var(--transition), color var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.editBtn:hover {
+  background: var(--accent-dim);
+  color: var(--accent-light);
+}
+
+.deleteBtn:hover {
+  background: var(--danger-dim);
+  color: var(--danger);
+}
+
+.deleteBtn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+@media (max-width: 480px) {
+  .actions {
+    opacity: 1;
+  }
+}

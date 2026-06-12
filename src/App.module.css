@@ -212,6 +212,17 @@
   border: 1px solid var(--border);
 }
 
+.searchInput {
+  margin-left: 8px;
+  padding: 8px 12px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text);
+  font-size: 0.9rem;
+  min-width: 200px;
+}
+
 .filterBtn {
   padding: 6px 14px;
   border-radius: 6px;

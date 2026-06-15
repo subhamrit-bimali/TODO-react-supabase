@@ -43,7 +43,7 @@ export default function TodoItem({ todo, onToggle, onDelete, onUpdate }) {
     month: "short",
     day: "numeric",
   });
-
+  console.log("1");
   return (
     <div
       className={`${styles.item} ${todo.is_complete ? styles.done : ""} ${deleting ? styles.deleting : ""}`}
